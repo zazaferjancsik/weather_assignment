@@ -36,13 +36,19 @@ for data in precipitation:                              #adding up all monthly p
     else:
         results[data['location']]['total_monthly_precipitation'][int(data['date'].split('-')[1])] += data['value']
 
+total_precipitation = 0
+
 for station in results:                         #adding up the monthly precipitation to get the yearly, for each station
     for i in range(1, 13):
         results[station]['total_yearly_precipitation'] += results[station]['total_monthly_precipitation'][i]
+    total_precipitation += results[station]['total_yearly_precipitation']           #adding all the precepitation up
 
 for station in results:                     #calculating relative monthly precipitation
     for i in range(1, 13):
         results[station]['relative_monthly_precipitation'][i] = results[station]['total_monthly_precipitation'][i] / results[station]['total_yearly_precipitation']
+
+for station in results:                 #calculating relative yearly percipitation for each location
+    results[station]['relative_yearly_precipitation'] = results[station]['total_yearly_precipitation'] / total_precipitation
 
 with open('results.json', 'w', encoding='utf-8') as file:               #writing json file
     json.dump(results, file, indent=4)
