@@ -14,9 +14,9 @@ for station in stations:                                #creating library for ea
     results[station['Location']] = {}
     results[station['Location']]['station'] = station['Station']
     results[station['Location']]['state'] = station['State']
-    results[station['Location']]['total_monthly_precipitation'] = {}
+    results[station['Location']]['total_monthly_precipitation'] = [0,0,0,0,0,0,0,0,0,0,0,0]
     results[station['Location']]['total_yearly_precipitation'] = 0
-    results[station['Location']]['relative_monthly_precipitation'] = {}
+    results[station['Location']]['relative_monthly_precipitation'] = [0,0,0,0,0,0,0,0,0,0,0,0]
     results[station['Location']]['relative_yearly_precipitation'] = 0
 
 for data in precipitation:                          #adding name of the location, so it is easier to sort out each data
@@ -30,25 +30,32 @@ for data in precipitation:                          #adding name of the location
         data['location'] = 'San Diego'
     
 
-for data in precipitation:                              #adding up all monthly precipitation
-    if int(data['date'].split('-')[1]) not in results[data['location']]['total_monthly_precipitation']:
-        results[data['location']]['total_monthly_precipitation'][int(data['date'].split('-')[1])] = data['value']
-    else:
-        results[data['location']]['total_monthly_precipitation'][int(data['date'].split('-')[1])] += data['value']
+# for data in precipitation:                              #adding up all monthly precipitation as a dictionary
+#     if int(data['date'].split('-')[1]) not in results[data['location']]['total_monthly_precipitation']:
+#         results[data['location']]['total_monthly_precipitation'][int(data['date'].split('-')[1])] = data['value']
+#     else:
+#         results[data['location']]['total_monthly_precipitation'][int(data['date'].split('-')[1])] += data['value']
+
+for data in precipitation:                      #adding up all monthly precipitation as a list
+    results[data['location']]['total_monthly_precipitation'][int(data['date'].split('-')[1])-1] += data['value']
 
 total_precipitation = 0
 
 for station in results:                         #adding up the monthly precipitation to get the yearly, for each station
-    for i in range(1, 13):
+    for i in range(12):
         results[station]['total_yearly_precipitation'] += results[station]['total_monthly_precipitation'][i]
     total_precipitation += results[station]['total_yearly_precipitation']           #adding all the precepitation up
 
-for station in results:                     #calculating relative monthly precipitation
-    for i in range(1, 13):
-        results[station]['relative_monthly_precipitation'][i] = results[station]['total_monthly_precipitation'][i] / results[station]['total_yearly_precipitation']
+# for station in results:                     #calculating relative monthly precipitation as a dictionary
+#     for i in range(12):
+#         results[station]['relative_monthly_precipitation'][i] = results[station]['total_monthly_precipitation'][i] / results[station]['total_yearly_precipitation']
+
+for station in results:                     #calculating relative monthly precipitation as a list
+    for i in range(12):
+        results[station]['relative_monthly_precipitation'][i] += results[station]['total_monthly_precipitation'][i] / results[station]['total_yearly_precipitation']
 
 for station in results:                 #calculating relative yearly percipitation for each location
-    results[station]['relative_yearly_precipitation'] = results[station]['total_yearly_precipitation'] / total_precipitation
+    results[station]['relative_yearly_precipitation'] += results[station]['total_yearly_precipitation'] / total_precipitation
 
 with open('results.json', 'w', encoding='utf-8') as file:               #writing json file
     json.dump(results, file, indent=4)
