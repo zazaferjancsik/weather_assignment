@@ -1,0 +1,34 @@
+{
+    "Cincinnati": {
+        "station": "GHCND:USW00093814",
+        "state": "OH",
+        "total_monthly_precipitation": {},
+        "total_yearly_precipitation": 0,
+        "relative_monthly_precipitation": 0,
+        "relative_yearly_precipitation": 0
+    },
+    "Seattle": {
+        "station": "GHCND:US1WAKG0038",
+        "state": "WA",
+        "total_monthly_precipitation": {},
+        "total_yearly_precipitation": 0,
+        "relative_monthly_precipitation": 0,
+        "relative_yearly_precipitation": 0
+    },
+    "Maui": {
+        "station": "GHCND:USC00513317",
+        "state": "HI",
+        "total_monthly_precipitation": {},
+        "total_yearly_precipitation": 0,
+        "relative_monthly_precipitation": 0,
+        "relative_yearly_precipitation": 0
+    },
+    "San Diego": {
+        "station": "GHCND:US1CASD0032",
+        "state": "CA",
+        "total_monthly_precipitation": {},
+        "total_yearly_precipitation": 0,
+        "relative_monthly_precipitation": 0,
+        "relative_yearly_precipitation": 0
+    }
+}
