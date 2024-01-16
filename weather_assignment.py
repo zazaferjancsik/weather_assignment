@@ -30,8 +30,11 @@ for data in precipitation:
         data['location'] = 'San Diego'
     
 
-# for data in precipitation:
-#     if int(data['date'].split('-')[1]) in results[data[]]
+for data in precipitation:
+    if int(data['date'].split('-')[1]) not in results[data['location']]['total_monthly_precipitation']:
+        results[data['location']]['total_monthly_precipitation'][int(data['date'].split('-')[1])] = data['value']
+    else:
+        results[data['location']]['total_monthly_precipitation'][int(data['date'].split('-')[1])] += data['value']
 
 with open('results.json', 'w', encoding='utf-8') as file:               #writing json file
     json.dump(results, file, indent=4)

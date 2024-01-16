@@ -2,7 +2,20 @@
     "Cincinnati": {
         "station": "GHCND:USW00093814",
         "state": "OH",
-        "total_monthly_precipitation": {},
+        "total_monthly_precipitation": {
+            "1": 512,
+            "2": 588,
+            "3": 889,
+            "4": 491,
+            "5": 1439,
+            "6": 1764,
+            "7": 614,
+            "8": 290,
+            "9": 145,
+            "10": 377,
+            "11": 1762,
+            "12": 450
+        },
         "total_yearly_precipitation": 0,
         "relative_monthly_precipitation": 0,
         "relative_yearly_precipitation": 0
@@ -10,7 +23,20 @@
     "Seattle": {
         "station": "GHCND:US1WAKG0038",
         "state": "WA",
-        "total_monthly_precipitation": {},
+        "total_monthly_precipitation": {
+            "1": 1693,
+            "2": 730,
+            "3": 870,
+            "4": 752,
+            "5": 924,
+            "6": 601,
+            "7": 54,
+            "8": 104,
+            "9": 996,
+            "10": 908,
+            "11": 1192,
+            "12": 2356
+        },
         "total_yearly_precipitation": 0,
         "relative_monthly_precipitation": 0,
         "relative_yearly_precipitation": 0
@@ -18,7 +44,20 @@
     "Maui": {
         "station": "GHCND:USC00513317",
         "state": "HI",
-        "total_monthly_precipitation": {},
+        "total_monthly_precipitation": {
+            "1": 362,
+            "2": 201,
+            "3": 861,
+            "4": 553,
+            "5": 89,
+            "6": 144,
+            "7": 276,
+            "8": 259,
+            "9": 270,
+            "10": 432,
+            "11": 846,
+            "12": 833
+        },
         "total_yearly_precipitation": 0,
         "relative_monthly_precipitation": 0,
         "relative_yearly_precipitation": 0
@@ -26,7 +65,20 @@
     "San Diego": {
         "station": "GHCND:US1CASD0032",
         "state": "CA",
-        "total_monthly_precipitation": {},
+        "total_monthly_precipitation": {
+            "1": 1323,
+            "2": 853,
+            "3": 144,
+            "4": 481,
+            "5": 5,
+            "6": 3,
+            "7": 34,
+            "8": 0,
+            "9": 14,
+            "10": 617,
+            "11": 394,
+            "12": 1903
+        },
         "total_yearly_precipitation": 0,
         "relative_monthly_precipitation": 0,
         "relative_yearly_precipitation": 0
